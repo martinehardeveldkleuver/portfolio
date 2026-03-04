@@ -1,0 +1,350 @@
+:root {
+    --text-primary: #111111;
+    --text-secondary: #333333;
+    --text-muted: #555555;
+    --accent-color: #c5a028;
+    /* Champagne Gold */
+    --font-display: 'Syne', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --page-width: 210mm;
+    /* A4 width */
+    --page-padding: 10mm 15mm;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FAFAFA;
+    /* Light grey background for screen */
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 10pt;
+    /* Optimised for print reading */
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.resume-container {
+    background: #FFFFFF;
+    width: var(--page-width);
+    margin: 2rem auto;
+    padding: var(--page-padding);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Validation on screen */
+    min-height: 297mm;
+    /* A4 height */
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* Header */
+.resume-header {
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.name {
+    font-family: var(--font-heading);
+    font-size: 20pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-info {
+    font-size: 9pt;
+    color: var(--text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.separator {
+    color: #ccc;
+    font-size: 0.8em;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 11pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+/* Summary */
+.summary-section p {
+    color: var(--text-secondary);
+}
+
+/* Experience */
+.job-entry {
+    margin-bottom: 1.2rem;
+}
+
+.job-entry:last-child {
+    margin-bottom: 0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Aligns to top if text wraps */
+    margin-bottom: 0.3rem;
+    gap: 1rem;
+    /* Ensures space between columns */
+}
+
+.job-title-company {
+    font-size: 10.5pt;
+    flex: 1;
+    /* Takes available space */
+}
+
+.role {
+    font-weight: 700;
+}
+
+.company-separator {
+    margin: 0 0.3rem;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.company {
+    font-weight: 500;
+}
+
+.job-meta {
+    font-size: 9pt;
+    color: var(--text-muted);
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    /* Prevents wrapping/squishing */
+    margin-top: 2px;
+    /* Visual alignment with text top */
+}
+
+.location {
+    font-style: italic;
+    margin-top: 0.1rem;
+}
+
+.job-description,
+.notable-work,
+.projects-list {
+    margin-bottom: 0.4rem;
+    color: var(--text-secondary);
+}
+
+.key-tasks,
+.achievements {
+    list-style-type: square;
+    padding-left: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.key-tasks li,
+.achievements li {
+    margin-bottom: 0.2rem;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+}
+
+.skill-category {
+    font-size: 9.5pt;
+}
+
+.skill-label {
+    font-weight: 700;
+    margin-right: 0.4rem;
+}
+
+.skill-list {
+    color: var(--text-secondary);
+}
+
+/* Education */
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.degree-institution {
+    font-weight: 600;
+}
+
+.institution {
+    font-weight: 400;
+}
+
+.dates {
+    font-size: 9pt;
+    color: var(--text-muted);
+}
+
+.honors {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 9pt;
+    margin-top: 0.2rem;
+}
+
+/* Print Overrides */
+@media print {
+    body {
+        background: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .resume-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        /* Let page margins handle it or keep minimal */
+        box-shadow: none;
+        min-height: auto;
+    }
+
+    @page {
+        margin: 10mm 15mm;
+        size: auto;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Download Button Styles */
+.no-print {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(197, 160, 40, 0.3);
+}
+
+.download-btn svg {
+    stroke: currentColor;
+}
+
+@media (max-width: 1000px) {
+    .no-print {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0 0 0;
+    }
+}
+
+/* Stats Section */
+.resume-stats-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--text-primary);
+    padding: 0.5rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.resume-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    /* Distribute evenly */
+}
+
+.stat-value {
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
+/* Print adjustment */
+@media print {
+    .resume-stats-row {
+        border-bottom: 2px solid #000;
+    }
+}
