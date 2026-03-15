@@ -28,8 +28,17 @@ function loadExperience() {
             ? `<span class="voluntary-badge">VOLUNTARY WORK</span>`
             : '';
 
+        const summary = job.shortSummary || job.description;
+        const pointsHtml = job.points && job.points.length > 0 
+            ? `<ul class="timeline-points">${job.points.map(p => `<li>${p}</li>`).join('')}</ul>` 
+            : '';
+
         item.innerHTML = `
-            <div class="timeline-year">${job.startDate}<br><span style="font-size: 0.7em; opacity: 0.5;">to</span><br>${job.endDate}</div>
+            <div class="timeline-year">
+                <span class="date-start">${job.startDate}</span>
+                <span class="date-separator">to</span>
+                <span class="date-end">${job.endDate}</span>
+            </div>
             <div class="timeline-content">
                 ${voluntaryBadge}
                 <div class="timeline-company-row">
@@ -37,7 +46,8 @@ function loadExperience() {
                     ${logoHtml}
                 </div>
                 <h3 class="timeline-role">${job.role}</h3>
-                <div class="timeline-desc">${job.description}</div>
+                <div class="timeline-desc">${summary}</div>
+                ${pointsHtml}
             </div>
         `;
         timeline.appendChild(item);
@@ -195,15 +205,27 @@ function loadCaseStudies() {
             <h3>${cs.title}</h3>
             <div class="case-study-meta">
                 <div class="meta-block">
-                    <h4>The Challenge</h4>
+                    <h4>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="meta-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        The Challenge
+                    </h4>
                     <p>${cs.challenge}</p>
                 </div>
                 <div class="meta-block">
-                    <h4>The System</h4>
+                    <h4>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="meta-icon"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.72V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.17a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        The System
+                    </h4>
                     <p>${cs.system}</p>
                 </div>
                 <div class="meta-block result-block">
-                    <h4>The Result</h4>
+                    <div class="result-header">
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="meta-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            The Result
+                        </h4>
+                        <div class="highlight-metric">${cs.highlightMetric}</div>
+                    </div>
                     <p>${cs.result}</p>
                 </div>
             </div>
