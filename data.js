@@ -8,7 +8,7 @@ const data = {
         linkedin: "https://www.linkedin.com/in/martinehk",
         website: "https://www.linkedin.com/in/martinehk",
         tagline: "I specialize in scaling high-growth companies. I find what moves the market and pull it.",
-        summary: "Marketing Director for Swappie Benelux. Took two secondary markets to #1 and 150% average YoY revenue growth - the only Swappie region to capture market share and hit profitability during a period of global stagnation. Beyond the Benelux, I built the marketing GTM framework that scaled across 5 new product categories and 11 global markets. I grow brands by making them trusted first and loud second."
+        summary: "Marketing Director for Swappie Benelux. Took two secondary markets to #1 and 150% average YoY revenue growth - the only Swappie region to capture market share and hit profitability during a period of global stagnation. Beyond the Benelux, I built the marketing GTM framework that scaled across 3+ new product categories and 11 global markets. Featured spokesperson and industry expert across national broadcast & business media (Forbes, NPO, BNR, Business Insider, Adformatie)."
     },
     experience: [
         {
@@ -23,7 +23,7 @@ const data = {
             points: [
                 "Managing regional P&L and building high-performing teams with a 70+ eNPS.",
                 "Only regional markets to gain market share (NL 18% / BE 30%) during global stagnation.",
-                "Built a €30M expansion programme from scratch across 5 new product lines and 11 markets.",
+                "Built a €30M expansion programme from scratch across 3+ new product lines and 11 markets.",
                 "Scaled order volume while achieving a 30%+ reduction in Cost Per Order (CPO)."
             ]
         },
@@ -120,7 +120,7 @@ const data = {
             id: 3,
             victoryTitle: "Transformation",
             title: "The Multi-Category GTM Blueprint",
-            highlightMetric: "5+ new verticals",
+            highlightMetric: "3+ new verticals",
             challenge: "We were a single-product business (iPhones) with ambitions to become a multi-vertical consumer electronics destination. The real risk was diluting a brand with hard-earned authority in one category by entering categories where we had none.",
             system: "We built the marketing side of a cross-functional GTM playbook - working closely with supply, ops, and pricing, but owning the marketing execution end to end. Market and positioning research, PR, CRM, audience segmentation, everyone who needed to know, knew. We started with iPads to figure out what actually works and how to do it again for every expansion that followed.",
             result: "The iPad launch became the blueprint for four concurrent global category launches (AirPods, MacBooks, Smartwatches, and non-iPhone Smartphones). We are now successfully evolving from a niche specialist into a comprehensive electronics destination without losing operational focus."
@@ -143,6 +143,14 @@ const data = {
         "images/press/lesoirlogo12.png",
     ],
     mediaSlides: [
+        {
+            label: "FORBES FEATURE",
+            headline: "FORBES: LEADERSHIP & MARKET EXPANSION",
+            caption: "Featured in-depth interview in Forbes on scaling Swappie Benelux, high-growth leadership, and market ambition.",
+            image: "images/media/forbes-swappie.jpeg",
+            link: "https://www.forbes.be/nl/er-bestaat-geen-extern-bepaalde-leeftijd-waarop-je-genoeg-expertise-hebt/",
+            ctaText: "Read Forbes Interview"
+        },
         {
             label: "EXPERT SPOKESPERSON",
             headline: "NATIONAL MEDIA AUTHORITY",
@@ -175,6 +183,29 @@ const data = {
             image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200",
             link: "https://www.emerce.nl/wire/onderzoek-swappie-kwart-nederlandse-tieners-stelt-persoonlijke-vragen-liever-ai-familielid-vriend",
             ctaText: "Read article"
+        }
+    ],
+    pressOutlets: ["Forbes", "NPO National TV", "Financieele Dagblad (FD)", "Business Insider", "Adformatie", "Emerce", "BNR Nieuwsradio", "Mashable"],
+    pressHighlights: [
+        {
+            outlet: "Forbes",
+            role: "Featured Leadership Interview",
+            description: "In-depth Forbes profile on scaling Swappie Benelux into the #1 revenue engine, market leadership, and high-growth execution."
+        },
+        {
+            outlet: "NPO National TV",
+            role: "Broadcast Spokesperson",
+            description: "Featured expert on national broadcast television, leading the commercial narrative on circular tech growth."
+        },
+        {
+            outlet: "Adformatie",
+            role: "Published Media Researcher",
+            description: "Published author on Out-Of-Home (OOH) media effectiveness and subconscious consumer triggers."
+        },
+        {
+            outlet: "Emerce & BNR",
+            role: "AI & Consumer Trends Lead",
+            description: "Lead author of national consumer research on AI adoption patterns and digital consumer behavior."
         }
     ]
 };

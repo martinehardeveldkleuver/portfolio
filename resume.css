@@ -348,3 +348,77 @@ a {
         border-bottom: 2px solid #000;
     }
 }
+
+/* Press & Media Authority Section */
+.press-pub-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-color);
+    background: #FAFAFA;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent-color);
+    margin-bottom: 0.8rem;
+}
+
+.pub-separator {
+    color: #ccc;
+    font-size: 0.8em;
+}
+
+.press-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+}
+
+.press-highlight-item {
+    background: #FAFAFA;
+    border: 1px solid #EAEAEA;
+    padding: 0.6rem 0.8rem;
+    border-radius: 4px;
+}
+
+.press-highlight-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.25rem;
+}
+
+.press-outlet {
+    font-weight: 800;
+    font-size: 9pt;
+    color: var(--text-primary);
+}
+
+.press-role {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+}
+
+.press-highlight-desc {
+    font-size: 8.5pt;
+    color: var(--text-secondary);
+    line-height: 1.35;
+}
+
+@media print {
+    .press-pub-list {
+        background: #F0F0F0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .press-highlight-item {
+        background: #FFF !important;
+        border: 1px solid #DDD !important;
+    }
+}

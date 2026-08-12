@@ -144,6 +144,37 @@ function loadResume() {
     skillsSec.appendChild(skillsGrid);
     container.appendChild(skillsSec);
 
+    // Press & Media Authority
+    if (data.pressOutlets && data.pressHighlights) {
+        const pressSec = document.createElement('section');
+        pressSec.className = 'section press-section';
+        pressSec.innerHTML = `<h3 class="section-title">Press & Media Authority</h3>`;
+
+        const pressBar = document.createElement('div');
+        pressBar.className = 'press-pub-list';
+        pressBar.innerHTML = data.pressOutlets.map(pub => `<span class="pub-tag">${pub}</span>`).join('<span class="pub-separator">•</span>');
+        pressSec.appendChild(pressBar);
+
+        const highlightsGrid = document.createElement('div');
+        highlightsGrid.className = 'press-highlights-grid';
+
+        data.pressHighlights.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'press-highlight-item';
+            card.innerHTML = `
+                <div class="press-highlight-header">
+                    <span class="press-outlet">${item.outlet}</span>
+                    <span class="press-role">${item.role}</span>
+                </div>
+                <p class="press-highlight-desc">${item.description}</p>
+            `;
+            highlightsGrid.appendChild(card);
+        });
+
+        pressSec.appendChild(highlightsGrid);
+        container.appendChild(pressSec);
+    }
+
     // Strategic Victories (Case Studies)
     if (data.caseStudies && data.caseStudies.length > 0) {
         const caseSec = document.createElement('section');
