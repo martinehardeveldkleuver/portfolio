@@ -57,93 +57,6 @@ function loadResume() {
         container.appendChild(statsSec);
     }
 
-    // Experience
-    const expSec = document.createElement('section');
-    expSec.className = 'section experience-section';
-    expSec.innerHTML = `<h3 class="section-title">Experience</h3>`;
-
-    data.experience.forEach(job => {
-        const entry = document.createElement('div');
-        entry.className = 'job-entry';
-
-        const dates = document.createElement('div');
-        dates.className = 'job-dates';
-        dates.textContent = `${job.startDate} — ${job.endDate}`;
-
-        // Prepare optional sections
-        let projectsHtml = '';
-        if (job.projects) {
-            projectsHtml = `<p class="projects-list"><strong>Projects:</strong> ${job.projects}</p>`;
-        }
-
-        let tasksHtml = '';
-        if (job.points && job.points.length > 0) {
-            tasksHtml = `<ul class="key-tasks">${job.points.map(p => `<li>${p}</li>`).join('')}</ul>`;
-        }
-
-        // Logic for ForwardXP ordering (Projects BEFORE Description)
-        // We can check if it's ForwardXP by name or just apply a general rule if needed.
-        // The user specifically asked for FXP projects to be above description.
-        // Let's genericize: if it has projects, does it go before or after?
-        // User asked for "standardized projects listing below the job title/description" INITIALLY, 
-        // but then asked for "ForwardXP projects above description" to match other entries?
-        // Wait, looking at previous steps: "Moved ForwardXP 'Projects' list above the description to match other entries."
-        // So standard is Projects -> Description?
-        // Let's look at `data.js`:
-        // Vertigo: projects string used.
-        // New World: projects string used.
-        // FXP: projects string used.
-        // PLAYERUNKNOWN: no projects string, just points.
-
-        // Let's render: Header -> Projects (if any) -> Description -> Points
-
-        entry.innerHTML = `
-            <div class="job-header">
-                <div class="job-title-company">
-                    <span class="role">${job.role}</span>
-                    <span class="company-separator">|</span>
-                    <span class="company">${job.company}</span>
-                </div>
-            </div>
-            ${projectsHtml}
-            <div class="description">${job.description}</div>
-            ${tasksHtml}
-        `;
-
-        // Append dates to header
-        entry.querySelector('.job-header').appendChild(dates);
-        expSec.appendChild(entry);
-    });
-    container.appendChild(expSec);
-
-    // Skills
-    const skillsSec = document.createElement('section');
-    skillsSec.className = 'section skills-section';
-    skillsSec.innerHTML = `<h3 class="section-title">Technical Skills</h3>`;
-
-    const skillsGrid = document.createElement('div');
-    skillsGrid.className = 'skills-grid';
-
-    // keys in data.resumeSkills: engines, languages, tools, specialties
-    const labels = {
-        strategy: "Strategy",
-        media: "Media & Comms",
-        tools: "Tools",
-        languages: "Languages"
-    };
-
-    for (const [key, value] of Object.entries(data.resumeSkills)) {
-        const row = document.createElement('div');
-        row.className = 'skill-category';
-        row.innerHTML = `
-            <span class="skill-label">${labels[key] || key}:</span>
-            <span class="skill-list">${value}</span>
-        `;
-        skillsGrid.appendChild(row);
-    }
-    skillsSec.appendChild(skillsGrid);
-    container.appendChild(skillsSec);
-
     // Press & Media Authority
     if (data.pressOutlets && data.pressHighlights) {
         const pressSec = document.createElement('section');
@@ -174,6 +87,48 @@ function loadResume() {
         pressSec.appendChild(highlightsGrid);
         container.appendChild(pressSec);
     }
+
+    // Experience
+    const expSec = document.createElement('section');
+    expSec.className = 'section experience-section';
+    expSec.innerHTML = `<h3 class="section-title">Experience</h3>`;
+
+    data.experience.forEach(job => {
+        const entry = document.createElement('div');
+        entry.className = 'job-entry';
+
+        const dates = document.createElement('div');
+        dates.className = 'job-dates';
+        dates.textContent = `${job.startDate} — ${job.endDate}`;
+
+        let projectsHtml = '';
+        if (job.projects) {
+            projectsHtml = `<p class="projects-list"><strong>Projects:</strong> ${job.projects}</p>`;
+        }
+
+        let tasksHtml = '';
+        if (job.points && job.points.length > 0) {
+            tasksHtml = `<ul class="key-tasks">${job.points.map(p => `<li>${p}</li>`).join('')}</ul>`;
+        }
+
+        entry.innerHTML = `
+            <div class="job-header">
+                <div class="job-title-company">
+                    <span class="role">${job.role}</span>
+                    <span class="company-separator">|</span>
+                    <span class="company">${job.company}</span>
+                </div>
+            </div>
+            ${projectsHtml}
+            <div class="description">${job.description}</div>
+            ${tasksHtml}
+        `;
+
+        // Append dates to header
+        entry.querySelector('.job-header').appendChild(dates);
+        expSec.appendChild(entry);
+    });
+    container.appendChild(expSec);
 
     // Strategic Victories (Case Studies)
     if (data.caseStudies && data.caseStudies.length > 0) {
